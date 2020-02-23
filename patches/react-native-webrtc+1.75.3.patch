@@ -1,0 +1,70 @@
+diff --git a/node_modules/react-native-webrtc/RTCUtil.js b/node_modules/react-native-webrtc/RTCUtil.js
+index 8beb4f0..7adda7b 100644
+--- a/node_modules/react-native-webrtc/RTCUtil.js
++++ b/node_modules/react-native-webrtc/RTCUtil.js
+@@ -72,7 +72,8 @@ function normalizeMediaConstraints(constraints, mediaType) {
+                 facingMode: extractString(constraints, 'facingMode'),
+                 frameRate: extractNumber(constraints.mandatory, 'minFrameRate'),
+                 height: extractNumber(constraints.mandatory, 'minHeight'),
+-                width: extractNumber(constraints.mandatory, 'minWidth')
++                width: extractNumber(constraints.mandatory, 'minWidth'),
++                ar: !!constraints.ar,
+             };
+         } else {
+             // New style.
+@@ -81,7 +82,8 @@ function normalizeMediaConstraints(constraints, mediaType) {
+                 facingMode: extractString(constraints, 'facingMode'),
+                 frameRate: extractNumber(constraints, 'frameRate'),
+                 height: extractNumber(constraints, 'height'),
+-                width: extractNumber(constraints, 'width')
++                width: extractNumber(constraints, 'width'),
++                ar: !!constraints.ar,
+             };
+         }
+ 
+diff --git a/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule+RTCMediaStream.m b/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule+RTCMediaStream.m
+index 06063dd..02c9137 100644
+--- a/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule+RTCMediaStream.m
++++ b/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule+RTCMediaStream.m
+@@ -16,6 +16,11 @@
+ 
+ @implementation WebRTCModule (RTCMediaStream)
+ 
++static RTCVideoSource *_arVideSource = nil;
+++ (RTCVideoSource *)arVideoSource {
++  return _arVideSource;
++}
++
+ #pragma mark - getUserMedia
+ 
+ /**
+@@ -40,6 +45,10 @@ - (RTCVideoTrack *)createVideoTrack:(NSDictionary *)constraints {
+   NSString *trackUUID = [[NSUUID UUID] UUIDString];
+   RTCVideoTrack *videoTrack = [self.peerConnectionFactory videoTrackWithSource:videoSource trackId:trackUUID];
+ 
++    
++  if ([constraints[@"video"][@"ar"] boolValue]) {
++    _arVideSource = videoSource;
++  } else {
+ #if !TARGET_IPHONE_SIMULATOR
+   RTCCameraVideoCapturer *videoCapturer = [[RTCCameraVideoCapturer alloc] initWithDelegate:videoSource];
+   VideoCaptureController *videoCaptureController
+@@ -48,6 +57,7 @@ - (RTCVideoTrack *)createVideoTrack:(NSDictionary *)constraints {
+   videoTrack.videoCaptureController = videoCaptureController;
+   [videoCaptureController startCapture];
+ #endif
++  }
+ 
+   return videoTrack;
+ }
+diff --git a/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule.h b/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule.h
+index ec0c14b..a6624de 100644
+--- a/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule.h
++++ b/node_modules/react-native-webrtc/ios/RCTWebRTC/WebRTCModule.h
+@@ -34,4 +34,6 @@
+ 
+ - (RTCMediaStream*)streamForReactTag:(NSString*)reactTag;
+ 
+++ (RTCVideoSource *)arVideoSource;
++
+ @end

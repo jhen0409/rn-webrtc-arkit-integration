@@ -1,0 +1,16 @@
+{
+  "name": "rn-webrtc-server",
+  "private": true,
+  "version": "0.1.0",
+  "main": "app.js",
+  "scripts": {
+    "deploy": "cd ../.. && git subtree push --prefix servers/rn-webrtc-server heroku master",
+    "local": "LOCAL=1 yarn start",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "open": "^7.0.2",
+    "socket.io": "1.3.4"
+  }
+}

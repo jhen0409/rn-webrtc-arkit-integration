@@ -1,0 +1,20 @@
+{
+  "name": "react-native-webrtc-ar-session",
+  "version": "0.1.0",
+  "description": "Capturing ARKit scene (Like `react-native-arkit`) into `react-native-webrtc` video stream",
+  "scripts": {},
+  "dependencies": {
+    "invariant": "^2.2.4"
+  },
+  "author": "Jhen-Jie Hong <developer@jhen.me>",
+  "homepage": "https://github.com/jhen0409/rn-webrtc-arkit-integration",
+  "repository": "https://github.com/jhen0409/rn-webrtc-arkit-integration",
+  "keywords": [
+    "react-native",
+    "webrtc",
+    "react-native-webrtc",
+    "arkit",
+    "react-native-arkit"
+  ],
+  "license": "MIT"
+}

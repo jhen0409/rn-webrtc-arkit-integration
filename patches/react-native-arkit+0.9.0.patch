@@ -1,0 +1,25 @@
+diff --git a/node_modules/react-native-arkit/ios/RCTARKit.podspec b/node_modules/react-native-arkit/ios/RCTARKit.podspec
+new file mode 100644
+index 0000000..5cb4f39
+--- /dev/null
++++ b/node_modules/react-native-arkit/ios/RCTARKit.podspec
+@@ -0,0 +1,18 @@
++require 'json'
++pkg = JSON.parse(File.read('../package.json'))
++
++Pod::Spec.new do |s|
++
++  s.name           = "RCTARKit"
++  s.version        = pkg["version"]
++  s.summary        = pkg["description"]
++  s.homepage       = pkg["homepage"]
++  s.license        = pkg["license"]
++  s.author         = pkg["author"]
++  s.platforms      = { :ios => "9.0" }
++  s.source         = { :git => pkg["repository"]["url"], :tag => "#{s.version}" }
++  s.source_files   = '**/*.{h,m}'
++  s.preserve_paths = "**/*.js"
++  s.dependency 'React'
++
++end
+\ No newline at end of file

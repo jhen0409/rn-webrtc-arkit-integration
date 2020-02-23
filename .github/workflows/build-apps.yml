@@ -1,0 +1,26 @@
+name: Build apps
+
+on:
+  push:
+    paths:
+      - 'apps/*/**.js'
+
+jobs:
+  test-ios:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+
+      - name: Build
+        run: |
+          yarn
+          cd apps/RNWebRTCARExample
+          cd ios
+          pod repo update
+          pod install
+          cd -
+          xcodebuild -workspace ios/RNWebRTCARExample.xcworkspace -scheme RNWebRTCARExample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build

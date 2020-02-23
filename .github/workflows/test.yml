@@ -1,0 +1,15 @@
+name: Test
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - name: Run test
+        run: |
+          yarn
+          yarn lint
