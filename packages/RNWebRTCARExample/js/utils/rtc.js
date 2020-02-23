@@ -12,7 +12,7 @@ import {
 import config from '../config'
 import { createSignalClient } from './signal'
 
-async function getLocalStream(isFront, callback) {
+async function getLocalStream(isFront, ar) {
   const sourceInfos = await mediaDevices.enumerateDevices()
   let videoSourceId
   sourceInfos.some(info => {
@@ -25,7 +25,7 @@ async function getLocalStream(isFront, callback) {
     video: {
       // NOTE: Specified field by using patch:
       // https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/patches/react-native-webrtc%2B1.75.3.patch#L45
-      ar: isARWorldTrackingSupported(),
+      ar: ar && isARWorldTrackingSupported(),
       mandatory: {
         // minWidth: 500,
         // minHeight: 300,
@@ -38,6 +38,7 @@ async function getLocalStream(isFront, callback) {
 }
 
 export const createWebRTCClient = ({
+  ar,
   onLocalStream,
   onAddStream,
   onRemoveStream,
@@ -152,12 +153,14 @@ export const createWebRTCClient = ({
           break
         case 'connect':
           onLog('connect')
-          getLocalStream(false).then(stream => {
+          getLocalStream(false, ar).then(stream => {
             localStream = stream
             onLocalStream(stream)
-            startCapturingARView().then(result =>
-              onLog('Start WebRTC AR session', result),
-            )
+            if (ar) {
+              startCapturingARView().then(result =>
+                onLog('Start WebRTC AR session', result),
+              )
+            }
           })
           break
         case 'exchange':

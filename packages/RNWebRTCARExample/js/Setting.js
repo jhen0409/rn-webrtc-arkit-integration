@@ -11,6 +11,7 @@ import {
   Linking,
 } from 'react-native'
 import { Modalize } from 'react-native-modalize'
+import { isARWorldTrackingSupported } from 'react-native-webrtc-ar-session'
 import AsyncStorage from '@react-native-community/async-storage'
 import debounce from 'lodash.debounce'
 
@@ -78,6 +79,7 @@ export default function Settings(props) {
   const { onChange } = props
   const [roomId, setRoomId] = useState('')
   const [debug, setDebug] = useState(__DEV__)
+  const [arEnabled, setAREnabled] = useState(true)
 
   useEffect(() => {
     AsyncStorage.getItem('roomId').then(setRoomId)
@@ -92,6 +94,10 @@ export default function Settings(props) {
   useEffect(() => {
     onChange('debug', debug)
   }, [onChange, debug])
+
+  useEffect(() => {
+    onChange('arEnabled', arEnabled)
+  }, [onChange, arEnabled])
 
   const handleRoomIdChange = useMemo(
     () =>
@@ -127,13 +133,24 @@ export default function Settings(props) {
             defaultValue={roomId}
           />
         </View>
-        <TouchableOpacity
-          style={styles.switch}
-          onPress={() => setDebug(val => !val)}
-        >
-          <Text style={styles.field}>Debug AR scene</Text>
-          <Switch value={debug} onValueChange={setDebug} />
-        </TouchableOpacity>
+        {isARWorldTrackingSupported() && (
+          <TouchableOpacity
+            style={styles.switch}
+            onPress={() => setAREnabled(val => !val)}
+          >
+            <Text style={styles.field}>Enable AR scene</Text>
+            <Switch value={arEnabled} onValueChange={setAREnabled} />
+          </TouchableOpacity>
+        )}
+        {isARWorldTrackingSupported() && (
+          <TouchableOpacity
+            style={styles.switch}
+            onPress={() => setDebug(val => !val)}
+          >
+            <Text style={styles.field}>Debug AR scene</Text>
+            <Switch value={debug} onValueChange={setDebug} />
+          </TouchableOpacity>
+        )}
         <View style={styles.textContainer}>
           <Text style={styles.text}>Visit</Text>
           <TouchableOpacity onPress={() => Linking.openURL(readme)}>

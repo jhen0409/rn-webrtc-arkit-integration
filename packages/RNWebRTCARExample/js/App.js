@@ -12,9 +12,12 @@ const styles = StyleSheet.create({
   remote: { width: 150, height: 200, backgroundColor: 'black' },
 })
 
+const ar = isARWorldTrackingSupported()
+
 export default function App() {
   const [setting, setSetting] = useState({
     debug: __DEV__,
+    arEnabled: ar,
   })
   const [localStreamURL, setLocalStreamURL] = useState(null)
   const [remoteStreams, setRemoteStreams] = useState({})
@@ -23,6 +26,7 @@ export default function App() {
       return
     }
     const client = createWebRTCClient({
+      ar: setting.arEnabled,
       onLocalStream: stream => {
         setLocalStreamURL(stream.toURL())
         client.join(setting.roomId)
@@ -46,7 +50,7 @@ export default function App() {
       setRemoteStreams({})
       client.close()
     }
-  }, [setting.roomId])
+  }, [setting.roomId, setting.arEnabled])
 
   const handleSettingChange = useCallback(
     (name, value) =>
@@ -59,7 +63,7 @@ export default function App() {
 
   return (
     <>
-      {isARWorldTrackingSupported() ? (
+      {setting.arEnabled ? (
         <AR debug={setting.debug} />
       ) : (
         <RTCView streamURL={localStreamURL} style={styles.container} />
