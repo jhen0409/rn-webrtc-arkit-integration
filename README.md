@@ -7,7 +7,9 @@ Capturing ARKit scene (Like [`react-native-arkit`](https://github.com/react-nati
 
 ## Introdution
 
-**IMAGE**
+![demo](https://user-images.githubusercontent.com/3001525/75106771-d3485600-565a-11ea-9355-277c0d80c2fb.png)
+
+> Demo with iPod Touch (2019) and deployed [test page](https://rnwebrtc-server.herokuapp.com)
 
 For made integration between ARKit and WebRTC, this plugin continuously capture `[ARSCNView snapshot]` and convert to `RTCVideoFrame`.
 
