@@ -1,13 +1,9 @@
 {
   "name": "rn-webrtc-arkit-integration",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "apps/*",
-      "packages/*",
-      "servers/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "eslint .",
     "postinstall": "yarnw-sync-deps && yarn --ignore-scripts && patch-package"

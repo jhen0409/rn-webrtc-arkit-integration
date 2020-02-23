@@ -1,15 +1,24 @@
-name: Test
+name: CI
 on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v1
+
       - uses: actions/setup-node@v1
         with:
           node-version: 13.x
+
       - name: Run test
         run: |
           yarn
           yarn lint
+          cd packages/RNWebRTCARExample
+
+          cd ios
+          pod repo update
+          pod install
+          cd -
+          xcodebuild -workspace ios/RNWebRTCARExample.xcworkspace -scheme RNWebRTCARExample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build

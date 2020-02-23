@@ -262,7 +262,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../../../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../../../node_modules/react-native-gesture-handler`)
-  - RNWebRTCARSession (from `../../../packages/react-native-webrtc-ar-session/ios`)
+  - RNWebRTCARSession (from `../../react-native-webrtc-ar-session/ios`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -327,7 +327,7 @@ EXTERNAL SOURCES:
   RNGestureHandler:
     :path: "../../../node_modules/react-native-gesture-handler"
   RNWebRTCARSession:
-    :path: "../../../packages/react-native-webrtc-ar-session/ios"
+    :path: "../../react-native-webrtc-ar-session/ios"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -366,4 +366,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: bd24e3fcbf53d73ea80743352a105cf508f70f99
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

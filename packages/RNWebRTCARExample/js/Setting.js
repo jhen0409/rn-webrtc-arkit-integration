@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 })
 
 const readme =
-  'https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/apps/RNWebRTCARExample/README.md#usage'
+  'https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/packages/RNWebRTCARExample/README.md#usage'
 
 export default function Settings(props) {
   const modal = useRef(null)

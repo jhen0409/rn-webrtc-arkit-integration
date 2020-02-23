@@ -2,7 +2,7 @@
 
 Capturing ARKit scene (Like [`react-native-arkit`](https://github.com/react-native-ar/react-native-arkit)) into [`react-native-webrtc`](https://github.com/react-native-webrtc/react-native-webrtc) video stream.
 
-- [Example](https://github.com/jhen0409/rn-webrtc-arkit-integration/tree/master/apps/RNWebRTCARExample)
+- [Example](https://github.com/jhen0409/rn-webrtc-arkit-integration/tree/master/packages/RNWebRTCARExample)
 
 # Installation
 
