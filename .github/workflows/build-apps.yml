@@ -3,7 +3,7 @@ name: Build apps
 on:
   push:
     paths:
-      - 'apps/*/**.js'
+      - 'apps/*/**'
 
 jobs:
   test-ios:
