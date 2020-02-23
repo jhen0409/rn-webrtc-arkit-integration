@@ -924,7 +924,7 @@
 			baseConfigurationReference = A9ACBCDE1E25148D207915D7 /* Pods-RNWebRTCARExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 202002231;
+				CURRENT_PROJECT_VERSION = 202002232;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = C6EUM5DVB3;
 				INFOPLIST_FILE = RNWebRTCARExample/Info.plist;
@@ -946,7 +946,7 @@
 			baseConfigurationReference = FABC87FB4840F00351C297E8 /* Pods-RNWebRTCARExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 202002231;
+				CURRENT_PROJECT_VERSION = 202002232;
 				DEVELOPMENT_TEAM = C6EUM5DVB3;
 				INFOPLIST_FILE = RNWebRTCARExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

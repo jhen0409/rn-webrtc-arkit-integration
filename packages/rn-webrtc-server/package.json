@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "main": "app.js",
   "scripts": {
-    "deploy": "cd ../.. && git subtree push --prefix servers/rn-webrtc-server heroku master",
+    "deploy": "cd ../.. && git subtree push --prefix packages/rn-webrtc-server heroku master",
     "local": "LOCAL=1 yarn start",
     "start": "node server.js"
   },
