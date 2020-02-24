@@ -12,6 +12,8 @@ Capturing ARKit scene (Like [`react-native-arkit`](https://github.com/react-nati
 
 ## Usage
 
+After using [this react-native-webrtc patch](https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/patches/react-native-webrtc%2B1.75.3.patch), we need to set `ar: true` in `video` property of `mediaDevices.getUserMedia(...)`. (See [the example](https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/packages/RNWebRTCARExample/js/utils/rtc.js#L26-L28))
+
 ```js
 import {
   isARWorldTrackingSupported,
