@@ -11,7 +11,9 @@
   "scripts": {
     "ios": "react-native run-ios",
     "webrtc-dl-bitcode": "../../node_modules/react-native-webrtc/tools/downloadBitcode.sh",
-    "start": "rndebugger-open && react-native start"
+    "start": "rndebugger-open && react-native start",
+    "sync-version": "react-native-version -B -t ios",
+    "postinstall": "yarn sync-version"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.8.0",
@@ -31,7 +33,8 @@
     "babel-plugin-closure-elimination": "^1.3.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "metro-react-native-babel-preset": "^0.58.0",
-    "react-native-debugger-open": "^0.3.24"
+    "react-native-debugger-open": "^0.3.24",
+    "react-native-version": "^3.2.0"
   },
   "jest": {
     "preset": "react-native"
