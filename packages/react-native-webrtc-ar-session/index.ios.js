@@ -27,3 +27,8 @@ export const isARWorldTrackingSupported = () => {
   checkNativeModule()
   return !!RNWebRTCARSession.AR_WORLD_TRACKING_SUPPORTED
 }
+
+export const isARFaceTrackingSupported = () => {
+  checkNativeModule()
+  return !!RNWebRTCARSession.AR_FACE_TRACKING_SUPPORTED
+}

@@ -18,6 +18,7 @@ export default function App() {
   const [setting, setSetting] = useState({
     debug: __DEV__,
     arEnabled: ar,
+    faceTracking: false,
   })
   const [localStreamURL, setLocalStreamURL] = useState(null)
   const [remoteStreams, setRemoteStreams] = useState({})
@@ -50,7 +51,7 @@ export default function App() {
       setRemoteStreams({})
       client.close()
     }
-  }, [setting.roomId, setting.arEnabled])
+  }, [setting.roomId, setting.arEnabled, setting.faceTracking])
 
   const handleSettingChange = useCallback(
     (name, value) =>
@@ -64,7 +65,7 @@ export default function App() {
   return (
     <>
       {setting.arEnabled ? (
-        <AR debug={setting.debug} />
+        <AR debug={setting.debug} faceTracking={setting.faceTracking} />
       ) : (
         <RTCView streamURL={localStreamURL} style={styles.container} />
       )}

@@ -1,5 +1,8 @@
 # Example for react-native-webrtc-ar-session
 
+- Example 1: AR scene example with `react-native-arkit`
+- Example 2: AR face tracking example with [custom native view](ios/ExampleARSCNViewManager.m) (You can switch it on Setting)
+
 ## Installation
 
 ```bash
