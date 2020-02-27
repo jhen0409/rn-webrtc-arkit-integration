@@ -39,7 +39,7 @@ You can have native ARSCNView setup without `react-native-arkit`:
 
 ```objective-c
 // Add to your header file
-#import "RNWebRTCARSession.h"
+#import <RNWebRTCARSession/RNWebRTCARSession.h>
 
 [RNWebRTCARSession setArView:__your_arscnview_here__];
 ```
