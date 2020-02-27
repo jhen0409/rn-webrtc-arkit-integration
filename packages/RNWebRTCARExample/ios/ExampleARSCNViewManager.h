@@ -1,13 +1,7 @@
-//
-//  ExampleARSCNViewManager.h
-//  RNWebRTCARExample
-//
-//  Created by Jhen-Jie Hong on 2020/2/27.
-//  Copyright © 2020 Facebook. All rights reserved.
-//
+#import <ARkit/ARKit.h>
+#import <React/RCTViewManager.h>
+#import <React/RCTBridgeModule.h>
 
-#ifndef ExampleARSCNViewManager_h
-#define ExampleARSCNViewManager_h
+@interface ExampleARSCNViewManager : RCTViewManager <RCTBridgeModule>
 
-
-#endif /* ExampleARSCNViewManager_h */
+@end

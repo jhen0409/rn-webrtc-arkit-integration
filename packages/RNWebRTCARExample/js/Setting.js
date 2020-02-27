@@ -11,7 +11,10 @@ import {
   Linking,
 } from 'react-native'
 import { Modalize } from 'react-native-modalize'
-import { isARWorldTrackingSupported } from 'react-native-webrtc-ar-session'
+import {
+  isARWorldTrackingSupported,
+  isARFaceTrackingSupported,
+} from 'react-native-webrtc-ar-session'
 import AsyncStorage from '@react-native-community/async-storage'
 import debounce from 'lodash.debounce'
 
@@ -80,6 +83,7 @@ export default function Settings(props) {
   const [roomId, setRoomId] = useState('')
   const [debug, setDebug] = useState(__DEV__)
   const [arEnabled, setAREnabled] = useState(true)
+  const [faceTracking, setFaceTracking] = useState(false)
 
   useEffect(() => {
     AsyncStorage.getItem('roomId').then(setRoomId)
@@ -98,6 +102,10 @@ export default function Settings(props) {
   useEffect(() => {
     onChange('arEnabled', arEnabled)
   }, [onChange, arEnabled])
+
+  useEffect(() => {
+    onChange('faceTracking', faceTracking)
+  }, [onChange, faceTracking])
 
   const handleRoomIdChange = useMemo(
     () =>
@@ -149,6 +157,15 @@ export default function Settings(props) {
           >
             <Text style={styles.field}>Debug AR scene</Text>
             <Switch value={debug} onValueChange={setDebug} />
+          </TouchableOpacity>
+        )}
+        {isARFaceTrackingSupported && (
+          <TouchableOpacity
+            style={styles.switch}
+            onPress={() => setFaceTracking(val => !val)}
+          >
+            <Text style={styles.field}>Switch Face Tracking Example</Text>
+            <Switch value={faceTracking} onValueChange={setFaceTracking} />
           </TouchableOpacity>
         )}
         <View style={styles.textContainer}>

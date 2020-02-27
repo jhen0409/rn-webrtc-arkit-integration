@@ -1,9 +1,60 @@
-//
-//  ExampleARSCNViewManager.m
-//  RNWebRTCARExample
-//
-//  Created by Jhen-Jie Hong on 2020/2/27.
-//  Copyright © 2020 Facebook. All rights reserved.
-//
+#import "ExampleARSCNViewManager.h"
+#import <React/RCTUIManager.h>
+#import <RNWebRTCARSession/RNWebRTCARSession.h>
 
-#import <Foundation/Foundation.h>
+@interface ExampleARSCNViewManager () <ARSCNViewDelegate, ARSessionDelegate>
+
+@end
+
+@implementation ExampleARSCNViewManager
+
+static ARSCNView *_arView = nil;
+
+RCT_EXPORT_MODULE()
+
+- (UIView *)view
+{
+  return [self instance];
+}
+
+- (ARSCNView*)instance {
+  if (_arView != nil) {
+    return _arView;
+  }
+  ARSCNView *arView = [[ARSCNView alloc] init];
+  arView.delegate = self;
+  arView.session.delegate = self;
+  arView.showsStatistics = true;
+  _arView = arView;
+  [self resume];
+  return _arView;
+}
+
+- (void)pause {
+  [_arView.session pause];
+}
+
+- (void)resume {
+  ARFaceTrackingConfiguration *configuration = [ARFaceTrackingConfiguration new];
+  [_arView.session runWithConfiguration:configuration];
+}
+
+#pragma mark - ARSCNViewDelegate
+- (nullable SCNNode *)renderer:(id <SCNSceneRenderer>)renderer nodeForAnchor:(ARAnchor *)anchor {
+  ARSCNFaceGeometry *faceMesh = [ARSCNFaceGeometry faceGeometryWithDevice:_arView.device];
+  SCNNode *node = [SCNNode nodeWithGeometry:faceMesh];
+  node.geometry.firstMaterial.fillMode = SCNFillModeLines;
+  return node;
+}
+
+RCT_EXPORT_METHOD(injectARSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+  [RNWebRTCARSession setArView:_arView];
+  resolve(@{});
+}
+
+RCT_EXPORT_METHOD(revertARSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+  [RNWebRTCARSession setArView:nil];
+  resolve(@{});
+}
+
+@end

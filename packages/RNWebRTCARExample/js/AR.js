@@ -1,12 +1,17 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { ARKit } from 'react-native-arkit'
+import ARFaceTracking from './Custom/AR'
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'black' },
 })
 
 export default function AR(props) {
+  const { faceTracking } = props
+  if (faceTracking) {
+    return <ARFaceTracking style={styles.container} />
+  }
   return (
     <ARKit
       style={styles.container}

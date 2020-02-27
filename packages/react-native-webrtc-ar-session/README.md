@@ -44,6 +44,8 @@ You can have native ARSCNView setup without `react-native-arkit`:
 [RNWebRTCARSession setArView:__your_arscnview_here__];
 ```
 
+[Example](https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/packages/RNWebRTCARExample/ios/ExampleARSCNViewManager.m)
+
 ## License
 
 [MIT](https://github.com/jhen0409/rn-webrtc-arkit-integration/blob/master/LICENSE.md)
