@@ -225,7 +225,7 @@ PODS:
     - React
   - RNGestureHandler (1.6.0):
     - React
-  - RNWebRTCARSession (0.1.0):
+  - RNWebRTCARSession (0.1.1):
     - React
     - react-native-webrtc
   - Yoga (1.14.0)
@@ -361,7 +361,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCAsyncStorage: 5d83b49070d41fd72906a116c5e7bdac4ea3a814
   RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
-  RNWebRTCARSession: 53dd817af296c88c794e8dee440d034fdb3b8f59
+  RNWebRTCARSession: 0efa95535bf9453b78957d5b1d0fe8661ea43555
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: bd24e3fcbf53d73ea80743352a105cf508f70f99
