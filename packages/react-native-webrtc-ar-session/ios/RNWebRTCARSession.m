@@ -26,9 +26,15 @@ RCT_EXPORT_MODULE()
 - (NSDictionary *)constantsToExport
 {
   if (@available(iOS 11.0, *)) {
-    return @{ @"AR_WORLD_TRACKING_SUPPORTED": @(ARWorldTrackingConfiguration.isSupported) };
+    return @{
+      @"AR_WORLD_TRACKING_SUPPORTED": @(ARWorldTrackingConfiguration.isSupported),
+      @"AR_FACE_TRACKING_SUPPORTED": @(ARFaceTrackingConfiguration.isSupported)
+    };
   } else {
-    return @{ @"AR_WORLD_TRACKING_SUPPORTED": @(NO) };
+    return @{
+      @"AR_WORLD_TRACKING_SUPPORTED": @(NO),
+      @"AR_FACE_TRACKING_SUPPORTED": @(NO),
+    };
   }
 }
 
