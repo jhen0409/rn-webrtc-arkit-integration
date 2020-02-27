@@ -1,6 +1,6 @@
 {
   "name": "RNWebRTCARExample",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "workspaces": {
     "nohoist": [
@@ -17,14 +17,14 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.8.0",
+    "lodash.debounce": "^4.0.8",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-arkit": "^0.9.0",
-    "react-native-modalize": "^1.3.7-rc.6",
     "react-native-gesture-handler": "^1.6.0",
+    "react-native-modalize": "^1.3.7-rc.6",
     "react-native-webrtc": "^1.75.3",
-    "react-native-webrtc-ar-session": "^0.1.0",
-    "lodash.debounce": "^4.0.8",
+    "react-native-webrtc-ar-session": "^0.1.1",
     "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
