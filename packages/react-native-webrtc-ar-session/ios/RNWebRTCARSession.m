@@ -164,7 +164,7 @@ RCT_EXPORT_METHOD(startSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromis
     _videoSource = [WebRTCModule arVideoSource];
       
     #if __has_include("RCTARKit.h")
-    if (!_arView) {
+    if (!_arView && [ARKit isInitialized]) {
       _arView = [ARKit sharedInstance].arView;
     }
     #endif
