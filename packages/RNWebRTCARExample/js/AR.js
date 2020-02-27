@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
 })
 
 export default function AR(props) {
-  const { faceTracking } = props
+  const { faceTracking, debug } = props
   if (faceTracking) {
-    return <ARFaceTracking style={styles.container} />
+    return <ARFaceTracking style={styles.container} debug={debug} />
   }
   return (
     <ARKit

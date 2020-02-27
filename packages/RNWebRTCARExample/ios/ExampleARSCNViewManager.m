@@ -30,6 +30,10 @@ RCT_EXPORT_MODULE()
   return _arView;
 }
 
+RCT_CUSTOM_VIEW_PROPERTY(debug, BOOL, ARSCNView) {
+  _arView.showsStatistics = [RCTConvert BOOL:json];
+}
+
 - (void)pause {
   [_arView.session pause];
 }
