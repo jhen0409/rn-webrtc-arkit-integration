@@ -32,13 +32,9 @@ server.listen(serverPort, () => {
 })
 
 function socketIdsInRoom(name) {
-  const socketIds = io.nsps['/'].adapter.rooms[name]
-  if (socketIds) {
-    const collection = []
-    for (const key in socketIds) {
-      collection.push(key)
-    }
-    return collection
+  const room = io.nsps['/'].adapter.rooms[name]
+  if (room) {
+    return Object.keys(room.sockets)
   }
   return []
 }
@@ -66,6 +62,8 @@ io.on('connection', socket => {
     console.log('exchange', data)
     data.from = socket.id
     const to = io.sockets.connected[data.to]
-    to.emit('exchange', data)
+    if (to) {
+      to.emit('exchange', data)
+    }
   })
 })
