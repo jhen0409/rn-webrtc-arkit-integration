@@ -159,12 +159,12 @@ export default function Settings(props) {
             <Switch value={debug} onValueChange={setDebug} />
           </TouchableOpacity>
         )}
-        {isARFaceTrackingSupported && (
+        {isARFaceTrackingSupported() && (
           <TouchableOpacity
             style={styles.switch}
             onPress={() => setFaceTracking(val => !val)}
           >
-            <Text style={styles.field}>Switch Face Tracking Example</Text>
+            <Text style={styles.field}>Face Tracking Example</Text>
             <Switch value={faceTracking} onValueChange={setFaceTracking} />
           </TouchableOpacity>
         )}
