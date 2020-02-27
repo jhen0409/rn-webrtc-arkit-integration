@@ -47,6 +47,15 @@ RCT_EXPORT_MODULE()
   return node;
 }
 
+- (void)renderer:(id <SCNSceneRenderer>)renderer didUpdateNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
+  if ([anchor isKindOfClass:[ARFaceAnchor class]] && [node.geometry isKindOfClass:[ARSCNFaceGeometry class]]) {
+    ARFaceAnchor *faceAnchor = anchor;
+    ARSCNFaceGeometry *faceMesh = node.geometry;
+    [faceMesh updateFromFaceGeometry:faceAnchor.geometry];
+  }
+}
+
+
 RCT_EXPORT_METHOD(injectARSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
   [RNWebRTCARSession setArView:_arView];
   resolve(@{});
