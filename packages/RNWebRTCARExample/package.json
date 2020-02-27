@@ -12,7 +12,7 @@
     "ios": "react-native run-ios",
     "webrtc-dl-bitcode": "../../node_modules/react-native-webrtc/tools/downloadBitcode.sh",
     "start": "rndebugger-open && react-native start",
-    "sync-version": "react-native-version -B -t ios",
+    "sync-version": "react-native-version -A -B -t ios",
     "postinstall": "yarn sync-version"
   },
   "dependencies": {
