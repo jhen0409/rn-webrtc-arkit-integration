@@ -1,6 +1,6 @@
 {
   "name": "react-native-webrtc-ar-session",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Capturing ARKit scene (Like `react-native-arkit`) into `react-native-webrtc` video stream",
   "scripts": {},
   "dependencies": {
