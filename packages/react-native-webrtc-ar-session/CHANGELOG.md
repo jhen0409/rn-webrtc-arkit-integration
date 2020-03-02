@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/jhen0409/rn-webrtc-arkit-integration/compare/v0.1.2...v0.1.3) (2020-03-02)
+
+
+### Features
+
+* add frame rate option for startSession ([acd1e48](https://github.com/jhen0409/rn-webrtc-arkit-integration/commit/acd1e4890ef91d0a11809a3741bab13952da19fa))
+
+
+
+
+
 ## [0.1.2](https://github.com/jhen0409/rn-webrtc-arkit-integration/compare/v0.1.1...v0.1.2) (2020-02-28)
 
 
