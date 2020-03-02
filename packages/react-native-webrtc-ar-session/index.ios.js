@@ -13,9 +13,9 @@ const checkNativeModule = () =>
     'Native Module `react-native-webrtc-ar-session` is not linked.',
   )
 
-export const startCapturingARView = () => {
+export const startCapturingARView = (options = {}) => {
   checkNativeModule()
-  return RNWebRTCARSession.startSession()
+  return RNWebRTCARSession.startSession(options)
 }
 
 export const stopCapturingARView = () => {

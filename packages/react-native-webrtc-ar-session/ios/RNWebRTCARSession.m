@@ -159,7 +159,12 @@ RCT_EXPORT_METHOD(stopSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromise
   resolve(@{});
 }
 
-RCT_EXPORT_METHOD(startSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+RCT_EXPORT_METHOD(startSession:(NSDictionary *)options
+  resolve:(RCTPromiseResolveBlock)resolve
+  reject:(RCTPromiseRejectBlock)reject
+) {
+  NSInteger frameRate = [options[@"frameRate"] intValue];
+  
   if (@available(iOS 11.0, *)) {
     _videoSource = [WebRTCModule arVideoSource];
       
@@ -174,10 +179,13 @@ RCT_EXPORT_METHOD(startSession:(RCTPromiseResolveBlock)resolve reject:(RCTPromis
       dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
       self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
 
+      if (!frameRate) {
+        frameRate = _arView.preferredFramesPerSecond;
+      }
       dispatch_source_set_timer(
         self.timer,
         DISPATCH_TIME_NOW,
-        NSEC_PER_SEC / _arView.preferredFramesPerSecond,
+        NSEC_PER_SEC / frameRate,
         NSEC_PER_SEC
       );
 
