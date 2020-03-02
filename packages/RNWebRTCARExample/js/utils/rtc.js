@@ -12,6 +12,8 @@ import {
 import config from '../config'
 import { createSignalClient } from './signal'
 
+const fps = 30
+
 async function getLocalStream(isFront, ar) {
   const sourceInfos = await mediaDevices.enumerateDevices()
   let videoSourceId
@@ -29,7 +31,7 @@ async function getLocalStream(isFront, ar) {
       mandatory: {
         // minWidth: 500,
         // minHeight: 300,
-        minFrameRate: 30,
+        minFrameRate: fps,
       },
       facingMode: isFront ? 'user' : 'environment',
       optional: videoSourceId ? [{ sourceId: videoSourceId }] : [],
@@ -157,7 +159,7 @@ export const createWebRTCClient = ({
             localStream = stream
             onLocalStream(stream)
             if (ar) {
-              startCapturingARView().then(result =>
+              startCapturingARView({ frameRate: fps }).then(result =>
                 onLog('Start WebRTC AR session', result),
               )
             }
