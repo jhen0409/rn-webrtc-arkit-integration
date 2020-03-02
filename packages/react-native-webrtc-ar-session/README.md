@@ -26,9 +26,9 @@ isARWorldTrackingSupported()
 
 // Start capturing <ARKit /> view into WebRTC video stream
 // You can call it after WebRTC and ARKit view is ready
-startCapturingARView().then(({ success }) =>
-  console.log('Start session:', success),
-)
+startCapturingARView({
+  frameRate: 30, // Default to ARSCNView.preferredFramesPerSecond (Default: 60)
+}).then(({ success }) => console.log('Start session:', success))
 
 stopCapturingARView()
 ```
