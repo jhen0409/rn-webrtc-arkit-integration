@@ -7354,9 +7354,9 @@ react-native-gesture-handler@^1.6.0:
     prop-types "^15.7.2"
 
 react-native-modalize@^1.3.7-rc.6:
-  version "1.3.7-rc.25"
-  resolved "https://registry.yarnpkg.com/react-native-modalize/-/react-native-modalize-1.3.7-rc.25.tgz#fea9f8658e7c9eaa9cf80247bd5e8d801ce4990c"
-  integrity sha512-fKWG0EAuNY8/Zz4fxndJ1gcUisBPOHmfwDsAy78uJ01L52sbvpLblHJ/OnzouP4yV0O6cK+abRH+FyjIJGyAlw==
+  version "1.3.7-rc.27"
+  resolved "https://registry.yarnpkg.com/react-native-modalize/-/react-native-modalize-1.3.7-rc.27.tgz#0ce35873d0d72a3fcaca419d251c7cdeb9b83504"
+  integrity sha512-JNUGaUaD0KoplBitE8Jpk3JYnQXIdeYGsq264/2nKzW5iat8sqSfYa3QItRPC/QrPnrJlUQg+jYFIzyPG6ps8g==
 
 react-native-version@^4.0.0:
   version "4.0.0"
