@@ -1664,9 +1664,9 @@
     react "15.4.2"
 
 "@react-native-community/async-storage@^1.8.0":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.10.1.tgz#23902625cf146a25b2929d72558caa437c72c4a8"
-  integrity sha512-9wjW4lNAKkNgeQtj4dG2graKoJoiAELvh6QDXZ55ld5J58kOfJIe6ELaGBUtIAoXPpmjsddjpXrfV6af3mN2JA==
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.10.2.tgz#0991092fc067665f61189dd185ae310d0f038cb3"
+  integrity sha512-LAOpwdw6WTbGYzSGzBSK2ht1b6STsPgXyn/GybbUcGX55MmZR91wzyvaboNcUO9y+lAEFmSr1nuE2GocOcOCiQ==
   dependencies:
     deep-assign "^3.0.0"
 
