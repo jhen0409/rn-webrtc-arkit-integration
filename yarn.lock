@@ -7453,9 +7453,9 @@ react-native-version@^4.0.0:
     semver "^7.0.0"
 
 react-native-webrtc@^1.75.3:
-  version "1.75.3"
-  resolved "https://registry.yarnpkg.com/react-native-webrtc/-/react-native-webrtc-1.75.3.tgz#4e9afc7c4356bdd1fea51c84cc1720bbfd7c3289"
-  integrity sha512-WIQu7jpH4osb4IMdjkpr62UYwt9kHIU4vWvvTHMxSqkGZwMGpTyFW/E+Y0T7If1azAvhq3GBuQjI3npxIXGbSQ==
+  version "1.84.0"
+  resolved "https://registry.yarnpkg.com/react-native-webrtc/-/react-native-webrtc-1.84.0.tgz#0ee0b74147a73e732f21e9b680f9a45585b00421"
+  integrity sha512-xPOFbrcehuBzLnFy3keCM2HyMsyCVDQjQNAn8SIHKH/PA8Q7kZ4spuytc2E1hBTr7zH/vQ2Px+DWqu7on12jag==
   dependencies:
     base64-js "^1.1.2"
     event-target-shim "^1.0.5"
