@@ -21,7 +21,7 @@
     "invariant": "^2.2.4",
     "lerna": "^3.20.2",
     "lodash.debounce": "^4.0.8",
-    "metro-react-native-babel-preset": "^0.59.0",
+    "metro-react-native-babel-preset": "^0.65.1",
     "open": "^7.0.2",
     "patch-package": "^6.2.0",
     "prop-types": "^15.7.2",
