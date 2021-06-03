@@ -3,7 +3,7 @@
 lerna publish $1 --conventional-commits
 
 cd packages/RNWebRTCARExample
-yarn sync version
+yarn sync-version
 cd -
 
 git add RNWebRTCARExample/
